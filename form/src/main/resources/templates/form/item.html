@@ -52,6 +52,7 @@
     <div>
         <div>등록 지역</div>
         <div th:each="region : ${regions}" class="form-check form-check-inline">
+            <!--                체크박스 속성을 field와 value를 비교하여 자동체크-->
             <input type="checkbox" th:field="${item.regions}" th:value="${region.key}" class="form-check-input" disabled>
             <label th:for="${#ids.prev('regions')}"
                    th:text="${region.value}" class="form-check-label">서울</label>

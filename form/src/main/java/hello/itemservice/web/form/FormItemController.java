@@ -2,6 +2,7 @@ package hello.itemservice.web.form;
 
 import hello.itemservice.domain.item.Item;
 import hello.itemservice.domain.item.ItemRepository;
+import hello.itemservice.domain.item.ItemType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +29,13 @@ public class FormItemController {
         regions.put("JEJU", "제주");
         return regions;
     }
+
+    @ModelAttribute("itemTypes")
+    public ItemType[] itemTypes(){
+        ItemType[] values = ItemType.values();
+        return values;
+    }
+
 
     @GetMapping
     public String items(Model model) {
