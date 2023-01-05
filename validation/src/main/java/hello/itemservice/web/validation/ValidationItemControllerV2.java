@@ -52,8 +52,7 @@ public class ValidationItemControllerV2 {
         if (!StringUtils.hasText(item.getItemName())) {
             bindingResult.addError(new FieldError("item", "itemName", "상품이름은 필수입니다."));
         }
-        if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() >
-                1000000) {
+        if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000) {
             bindingResult.addError(new FieldError("item", "price", "가격은 1,000~ 1,000,000까지 허용입니다."));
         }
         if (item.getQuantity() == null || item.getQuantity() >= 9999) {
@@ -85,8 +84,7 @@ public String addItemV2(@ModelAttribute Item item, BindingResult bindingResult, 
     if (!StringUtils.hasText(item.getItemName())) {
         bindingResult.addError(new FieldError("item", "itemName", item.getItemName(), false, null, null, "상품이름은 필수입니다."));
     }
-    if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() >
-            1000000) {
+    if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000) {
         bindingResult.addError(new FieldError("item", "price", item.getPrice(), false, null, null, "가격은 1,000~ 1,000,000까지 허용입니다."));
     }
     if (item.getQuantity() == null || item.getQuantity() >= 9999) {
@@ -110,7 +108,6 @@ public String addItemV2(@ModelAttribute Item item, BindingResult bindingResult, 
     redirectAttributes.addAttribute("status", true);
     return "redirect:/validation/v2/items/{itemId}";
 }
-
     @GetMapping("/{itemId}/edit")
     public String editForm(@PathVariable Long itemId, Model model) {
         Item item = itemRepository.findById(itemId);
