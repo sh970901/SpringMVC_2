@@ -41,6 +41,7 @@ public class LoginController {
         //로그인 성공 처리
 
         //쿠키에 시간 정보를 주지 않으면 세션 쿠키(브라우저 종료 시 모두 종료)
+        //쿠키만 사용할 시 심각한 보안문제 -> 쿠키 값 변경, 위변조가 쉬움
         Cookie idCookie = new Cookie("memberId", String.valueOf(loginMember.getId()));
         response.addCookie(idCookie);
         return "redirect:/";
