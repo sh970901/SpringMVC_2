@@ -22,7 +22,6 @@ public class FormItemController {
 
     private final ItemRepository itemRepository;
 
-    //이 컨트롤러는 모델에 모두 담김
     @ModelAttribute("regions")
     public Map<String, String> regions() {
         Map<String, String> regions = new LinkedHashMap<>();
